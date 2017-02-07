@@ -7,7 +7,7 @@ var phoneInput = document.getElementById('phone')
 var previewName = document.getElementById('preview-name')
 var previewBrief = document.getElementById('preview-brief')
 var previewContact = document.getElementById('preview-contact')
-// var code = document.getElementById('code')
+var codePreview = document.getElementById('code-preview')
 
 var updateProfile = function () {
   var first = firstNameInput.value
@@ -25,7 +25,7 @@ var updateProfile = function () {
     email + '</a> or give me a call at <a href="tel:' + phone +
     '" target="_blank">' + phone + '</a>.'
 
-  code.textContent = '<h1>Hi, my name is ' + first + ' ' + last +
+  codePreview.textContent = '<h1>Hi, my name is ' + first + ' ' + last +
     '!</h1>\n<p>' + brief + '</p>\n<p>\n  If you\'re interested in a date, ' +
     'you can email me at\n  <a href="mailto:' + email + '" target="_blank">' +
     email + '</a>\n  or give me a call at\n  <a href="tel:' + phone +

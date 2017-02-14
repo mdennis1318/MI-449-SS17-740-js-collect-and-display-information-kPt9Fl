@@ -4,9 +4,7 @@ var briefInfoInput = document.getElementById('brief-info-text')
 var emailInput = document.getElementById('email')
 var phoneInput = document.getElementById('phone')
 
-var previewName = document.getElementById('preview-name')
-var previewBrief = document.getElementById('preview-brief')
-var previewContact = document.getElementById('preview-contact')
+var preview = document.getElementById('preview')
 var codePreview = document.getElementById('code-preview')
 
 var updateProfile = function () {
@@ -16,20 +14,19 @@ var updateProfile = function () {
   var email = emailInput.value
   var phone = phoneInput.value
 
-  previewName.innerHTML = 'Hi, my name is ' + first + ' ' + last + '!'
+  var profileHtml =
+    '<h1>Hi, my name is ' + first + ' ' + last + '</h1>\n' +
+    '<p>\n  ' + brief + '\n</p>\n' +
+    '<p>\n' +
+      '  If you\'re interested in a date, you can email me at ' +
+      '\n  <a href="mailto:' + email + '" target="_blank">' + email + '</a>' +
+      '\n  or give me a call at ' +
+      '\n  <a href="tel:' + phone + '" target="_blank">' + phone + '</a>.' +
+    '\n</p>'
 
-  previewBrief.innerHTML = brief
+  preview.innerHTML = profileHtml
 
-  previewContact.innerHTML = 'If you\'re interested in a date, ' +
-    'you can email me at <a     href="mailto:' + email + '" target="_blank">' +
-    email + '</a> or give me a call at <a href="tel:' + phone +
-    '" target="_blank">' + phone + '</a>.'
-
-  codePreview.textContent = '<h1>Hi, my name is ' + first + ' ' + last +
-    '!</h1>\n<p>' + brief + '</p>\n<p>\n  If you\'re interested in a date, ' +
-    'you can email me at\n  <a href="mailto:' + email + '" target="_blank">' +
-    email + '</a>\n  or give me a call at\n  <a href="tel:' + phone +
-    '" target="_blank">' + phone + '</a>.\n</p>'
+  codePreview.textContent = profileHtml
 }
 
 firstNameInput.addEventListener('input', updateProfile)
